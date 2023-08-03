@@ -9,7 +9,7 @@ import {
 const app = express();
 app.use(express.json());
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 const checkTokenMiddleware = (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
