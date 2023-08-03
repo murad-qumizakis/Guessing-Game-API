@@ -15,19 +15,19 @@ const checkTokenMiddleware = (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
 
   if (!authorizationHeader) {
-    return res.status(401).send("Unauthorized");
+    return res.status(401).json("Unauthorized");
   }
 
   const token = authorizationHeader.split(" ")[1];
 
   if (token !== process.env.TOKEN) {
-    return res.status(401).send("Unauthorized");
+    return res.status(401).json("Unauthorized");
   }
 
   next();
 };
 
-// app.use(checkTokenMiddleware);
+app.use(checkTokenMiddleware);
 
 app.get("/", async (req, res) => {
   const games = await getAllGames();
