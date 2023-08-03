@@ -27,7 +27,7 @@ const checkTokenMiddleware = (req, res, next) => {
   next();
 };
 
-app.use(checkTokenMiddleware);
+// app.use(checkTokenMiddleware);
 
 app.get("/", async (req, res) => {
   const games = await getAllGames();
