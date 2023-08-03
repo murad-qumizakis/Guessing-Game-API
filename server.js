@@ -15,13 +15,13 @@ const checkTokenMiddleware = (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
 
   if (!authorizationHeader) {
-    return res.status(401).json("Unauthorized");
+    return res.status(401).json({ error: "No authorization header" });
   }
 
   const token = authorizationHeader.split(" ")[1];
 
   if (token !== process.env.TOKEN) {
-    return res.status(401).json("Unauthorized");
+    return res.status(401).json({ error: "Invalid token" });
   }
 
   next();
