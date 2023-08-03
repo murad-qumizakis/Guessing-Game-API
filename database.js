@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log(process.env);
+console.log("MURAD QUMIZAKIS: ", process.env);
 
 const pool = mysql
   .createPool({
